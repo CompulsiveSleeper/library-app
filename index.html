@@ -21,20 +21,25 @@
 
     </section>
   </main>
-  <form class="form-new-book">
-    <div class="form-input">
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" required>
-    </div>
-    <div class="form-input">
-      <label for="author">Author:</label>
-      <input type="text" name="author" id="author" required>
-    </div>
-    <div class="form-input">
-      <label for="read">Read?</label>
-      <input type="checkbox" name="read" id="read" required>
-    </div>
-  </form>
+  <div class="form-div">
+    <form class="form-new-book">
+      <div class="form-input">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+        <span class="error"></span>
+      </div>
+      <div class="form-input">
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" required>
+        <span class="error"></span>
+      </div>
+      <div class="form-input">
+        <label for="read">Read?</label>
+        <input type="checkbox" name="read" id="read" required>
+      </div>
+      <button type="button">Add book</button>
+    </form>
+  </div>
   <script src="./index.js"></script>
 </body>
 

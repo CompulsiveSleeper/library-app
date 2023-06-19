@@ -1,13 +1,73 @@
-.form-new-book {
-  visibility: hidden;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form-div {
   position: absolute;
   top: 0;
   left: 0;
-  display: grid;
+  display: none;
   justify-content: center;
   align-items: center;
   align-content: center;
 
   width: 100vw;
   height: 100vh;
+}
+
+.form-new-book {
+  display: none;
+  padding: 10px;
+
+  background-color: lightcyan;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.error {
+  color: red;
+}
+
+.library {
+  display: grid;
+  gap: 20px;
+}
+
+.library > div {
+  display: grid;
+  justify-content: center;
+}
+
+.btn-add-book {
+  width: 80vw;
+  height: 30px;
+}
+
+.library-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.book {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 10px;
+
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: lightgreen;
+}
+
+.book img {
+  position: absolute;
+  right: 20px;
+  height: 20px;
+}
+
+.unread {
+  background-color: lightcoral;
 }
