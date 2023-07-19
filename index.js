@@ -1,18 +1,28 @@
-let myLibrary = [];
+const myLibrary = (() => {
+  const _state = [];
+
+  function getLibraryBooks() {
+    const books = [];
+    for (let i = 0; i < _state.length; i++) {
+      books.push(_state[i]);
+    }
+    return books;
+  }
+
+  function addBook(book) {
+    _state.push(book);
+  }
+
+  return {
+    addBook: addBook,
+    getLibraryBooks: getLibraryBooks,
+  }
+})();
 
 function Book() {
   this.title = title;
   this.author = author;
   this.read = true;
-}
-
-function addBookToLibrary() {
-  const newBook = new Book();
-  newBook.title = document.querySelector('#title').value;
-  newBook.author = document.querySelector('#author').value;
-  newBook.read = true;
-  myLibrary.push(newBook);
-  displayLibrary();
 }
 
 document.querySelector('.btn-add-book')
@@ -36,7 +46,12 @@ function toggleBookForm() {
     bookForm.style.display = "none";
     formDiv.style.display = "none";
 
-    addBookToLibrary();
+    const newBook = new Book();
+    newBook.title = document.querySelector('#title').value;
+    newBook.author = document.querySelector('#author').value;
+    newBook.read = true;
+    myLibrary.addBook(newBook);
+    displayLibrary();
     bookForm.reset();
   }
 }
@@ -61,8 +76,10 @@ function validateInputs() {
 function displayLibrary() {
   const libraryDisplay = document.querySelector('.library-display');
   libraryDisplay.innerHTML = "";
-  for (let bookIndex in myLibrary) {
-    const bookElement = createNewBookElement(myLibrary[bookIndex], bookIndex);
+  const books = myLibrary.getLibraryBooks();
+
+  for (let i = 0; i < books.length; i++) {
+    const bookElement = createNewBookElement(books[i], i);
     libraryDisplay.appendChild(bookElement);
   }
 }
@@ -132,5 +149,5 @@ newBook1.title = "Hello";
 newBook1.author = "me";
 newBook1.read = true;
 
-myLibrary.push(newBook1);
+myLibrary.addBook(newBook1);
 displayLibrary();
