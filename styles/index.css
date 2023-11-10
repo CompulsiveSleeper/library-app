@@ -17,7 +17,7 @@
 }
 
 .form-new-book {
-  display: none;
+  display: grid;
   padding: 10px;
 
   background-color: lightcyan;
